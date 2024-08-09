@@ -18,7 +18,7 @@ The repository is organised as follows:
 - dgl 2.1.0+cu121
 
 ## Running experiments
-Download data from the link: https://drive.google.com/drive/folders/1v5uEzpM1TytrgbdAwzyD_wU7A4n_NJzh?usp=drive_link and put into `data` folder
+Download data from the link: https://drive.google.com/drive/folders/1v5uEzpM1TytrgbdAwzyD_wU7A4n_NJzh?usp=drive_link and put into `data` folder.
 ### Node Classification
 1. Homophily datasets: run Python files whose names contain the strings 'homo' and 'NC'. e.g. `python execute_homo_NC.py`
 2. Heterophily datasets: run Python files whose names contain the strings 'hetero' and 'NC'. e.g. `python execute_hetero_NC.py`
