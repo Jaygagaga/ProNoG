@@ -4,7 +4,8 @@
 The repository is organised as follows:
 
 - **data**: data folder contains data we use in all experiments.
-- **GP/graphcl/DSSL/models**: this four folders contain four model architectures for respective pretraining tasks specified in the paper. 
+- **GP/graphcl/DSSL/models**: this four folders contain four model architectures for respective pretraining tasks specified in the paper.
+- **modelset**: `modelset` folder contains all pretrained model checkpoints. 
 - **downprompt**: `downprompt_metanet.py` contains the codes for our condition-net implementations.
 - **preprompt**: `preprompt_new1.py` is the main code for pretraining.
   
@@ -19,6 +20,7 @@ The repository is organised as follows:
 
 ## Running experiments
 Download data from the link: https://drive.google.com/drive/folders/1v5uEzpM1TytrgbdAwzyD_wU7A4n_NJzh?usp=drive_link and put into `data` folder.
+Change `dataset` name and `pretrained_model` parameters in python files to run the codes on different datasets. All pretrained model checkpoints can be found under `modelset` folder.
 ### Node Classification
 1. Homophily datasets: run Python files whose names contain the strings 'homo' and 'NC'. e.g. `python execute_homo_NC.py`
 2. Heterophily datasets: run Python files whose names contain the strings 'hetero' and 'NC'. e.g. `python execute_hetero_NC.py`
