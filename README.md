@@ -1,4 +1,5 @@
 # ProNoG
+
 ## Description
 
 The repository is organised as follows:
@@ -11,16 +12,27 @@ The repository is organised as follows:
   
 
 ## Package Dependencies
-
 - python 3.8.16
 - pytorch 1.10.1
 - cuda 12.1
 - pyG 2.1.0
 - dgl 2.1.0+cu121
 
+
 ## Running experiments
 Download data from the link: https://drive.google.com/drive/folders/1v5uEzpM1TytrgbdAwzyD_wU7A4n_NJzh?usp=drive_link and put into `data` folder.
 Change `dataset` name and `pretrained_model` parameters in python files to run the codes on different datasets. All pretrained model checkpoints can be found under `modelset` folder.
+
+**General settings Optimizer**
+
+For all experiments, we use the Adamoptimizer.
+
+**Environment**
+- The environment in which we run experiments is: Linux version: 5.15.0-78-generic
+- Operating system: Ubuntu 18.04.5 LTS
+- CPUinformation: Intel(R)Xeon(R) Platinum 8352V
+- GPU information: GeForce RTX 4090 (24 GB)
+
 ### Node Classification
 1. Homophily datasets: run Python files whose names contain the strings 'homo' and 'NC'. e.g. `python execute_homo_NC.py`
 2. Heterophily datasets: run Python files whose names contain the strings 'hetero' and 'NC'. e.g. `python execute_hetero_NC.py`
