@@ -160,16 +160,16 @@ if args.dataset in ['ENZYMES', 'PROTEINS']:
         # test_lbls = torch.load( f"data/fewshot_{args.dataset}/test_labels.pt").type(torch.long).squeeze().cuda()
         # idx_test = torch.load(f"data/fewshot_{args.dataset}/test_idx.pt").type(torch.long).cuda()
         # # sp_adj_test = test_adj.cuda()
-        testneighbors = []
-        file = open(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/testneighbors1shot.csv")
-        csvreader = csv.reader(file)
-        for row in csvreader:
-            testneighbors.append([int(i) for i in row])
-        testneighbors_2hop = []
-        file = open(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/testneighbors_2hop1shot.csv")
-        csvreader = csv.reader(file)
-        for row in csvreader:
-            testneighbors_2hop.append([int(i) for i in row])
+        # testneighbors = []
+        # file = open(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/testneighbors1shot.csv")
+        # csvreader = csv.reader(file)
+        # for row in csvreader:
+        #     testneighbors.append([int(i) for i in row])
+        # testneighbors_2hop = []
+        # file = open(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/testneighbors_2hop1shot.csv")
+        # csvreader = csv.reader(file)
+        # for row in csvreader:
+        #     testneighbors_2hop.append([int(i) for i in row])
         nb_classes = len(torch.unique(test_lbls))
 
 if args.dataset in ['pubmed', 'citeseer', 'cora']:
