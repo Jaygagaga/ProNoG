@@ -168,7 +168,7 @@ else:
 2hop neighbors and subgraphs
 ------------------------------------------------------------
 """
-if not os.path.exists(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/neighbors_2hops.csv"):
+if not os.path.exists(f"./data/fewshot_{args.dataset}/neighbors_2hops.csv"):
     neighbors = []
     neighbors_2hops = []
     neighborslist = [[] for x in range(origin_adj.shape[0])]
@@ -199,20 +199,20 @@ if not os.path.exists(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.data
     for x in tqdm.trange(len(neighbors_2hoplist)):
         neighbors_2hoptensor[x][neighbors_2hoplist[x]] = 1
 
-    with open(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/neighbors.csv", "w") as f:
+    with open(f"./data/fewshot_{args.dataset}/neighbors.csv", "w") as f:
         wr = csv.writer(f)
         wr.writerows(neighbors)
-    with open(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/neighbors_2hops.csv", "w") as f:
+    with open(f"./data/fewshot_{args.dataset}/neighbors_2hops.csv", "w") as f:
         wr = csv.writer(f)
         wr.writerows(neighbors_2hops)
 else:
     neighbors = []
-    file = open(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/neighbors.csv")
+    file = open(f"./data/fewshot_{args.dataset}/neighbors.csv")
     csvreader = csv.reader(file)
     for row in csvreader:
         neighbors.append([int(i) for i in row])
     neighbors_2hops = []
-    file = open(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/neighbors_2hops.csv")
+    file = open(f"./data/fewshot_{args.dataset}/neighbors_2hops.csv")
     csvreader = csv.reader(file)
     for row in csvreader:
         neighbors_2hops.append([int(i) for i in row])
