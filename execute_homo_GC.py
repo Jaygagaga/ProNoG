@@ -101,13 +101,13 @@ def edgeindex2graph(edge_index):
 import ast
 if args.dataset in ['BZR','COX2']:
 
-    with open(f"/home/xingtong/WebKB_node_origin/data/{args.dataset}/{args.dataset}.edges") as f:
+    with open(f"./data/{args.dataset}/{args.dataset}.edges") as f:
         edges_index = [ast.literal_eval(i) for i in  f.readlines()]
-    with open(f"/home/xingtong/WebKB_node_origin/data/{args.dataset}/{args.dataset}.graph_idx") as f:
+    with open(f"./data/{args.dataset}/{args.dataset}.graph_idx") as f:
         graph_labels =[ast.literal_eval(i) for i in  f.readlines()]
-    with open(f"/home/xingtong/WebKB_node_origin/data/{args.dataset}/{args.dataset}.node_attrs") as f:
+    with open(f"./data/{args.dataset}/{args.dataset}.node_attrs") as f:
         features= np.array([ast.literal_eval(i) for i in f.readlines()])
-    with open(f"/home/xingtong/WebKB_node_origin/data/{args.dataset}/{args.dataset}.node_labels") as f:
+    with open(f"./data/{args.dataset}/{args.dataset}.node_labels") as f:
         labels= torch.tensor([ast.literal_eval(i) for i in f.readlines()]).cuda()
 
     # features = process.preprocess_features(features)
@@ -166,7 +166,7 @@ for step, x in enumerate(range(test_adj_.shape[0])):
 
 
 
-# origin_datasets = torch.load(f'/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}_graph/graph_data1.pkl')
+# origin_datasets = torch.load(f'./data/fewshot_{args.dataset}_graph/graph_data1.pkl')
 # graph_idx =[i.graph_nodes[0] for i in origin_datasets]
 # graph_label = [i.y for i in origin_datasets]
 # idx_test = torch.load(f"data/fewshot_{args.dataset}_graph/test_idx.pt").type(torch.long).cuda()
