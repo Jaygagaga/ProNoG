@@ -42,7 +42,7 @@ parser.add_argument('--eps', type=float, default=0.3, help='Fixed scalar or lear
 parser.add_argument('--use_origin_feature',default=True,   action="store_true", help='aug type: mask or edge')
 parser.add_argument('--nb_epochs', type=int, default=5000, help='number of epochs')
 # pretraining hyperperemeter
-parser.add_argument('--pretrained_model', type=str, default='/home/xingtong/WebKB_node_origin/modelset/graphcl/FAGCN_graphCL_chameleon_70.pth',
+parser.add_argument('--pretrained_model', type=str, default='./modelset/graphcl/FAGCN_graphCL_chameleon_70.pth',
                     help='save ckpt name')
 parser.add_argument('--num_layers', type=int, default=2, help='num of layers')
 parser.add_argument('--model_name', type=str, default='FAGCN', help='save ckpt name')
