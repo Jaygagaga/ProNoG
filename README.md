@@ -1,4 +1,6 @@
 # ProNoG
+We provide the code (in pytorch) and datasets for our paper [**"Non-Homophilic Graph Pre-Training and Prompt Learning"**](https://arxiv.org/abs/2408.12594v4), 
+which is accepted by SIGKDD 2025.
 
 ## Description
 
