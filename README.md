@@ -2,6 +2,11 @@
 We provide the code (in pytorch) and datasets for our paper [**"Non-Homophilic Graph Pre-Training and Prompt Learning"**](https://arxiv.org/abs/2408.12594v4), 
 which is accepted by SIGKDD 2025.
 
+
+## UPDATE for running the codes
+
+Please run execute_hetero_NC.py first. Two csv files "neighbors.csv", "neighbors_2hops.csv" will be generated and saved to speed up for other excutions. Otherwise, use `find_2hop_neighbors` function from utils.process file to generate neighbors and neighbors_2hops.
+
 ## Description
 
 The repository is organised as follows:
