@@ -110,12 +110,12 @@ if args.dataset in ['chameleon', 'squirrel']:
 features, node_adj, labels, _, _ = process.process_webkb(datasets.data, datasets.data.x.shape[0])
 # if args.dataset in ['film']:
 #     datasets = Actor(root='data')
-# origin_datasets = torch.load(f'/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}_graph/graph_data.pkl')
+# origin_datasets = torch.load(f'./data/fewshot_{args.dataset}_graph/graph_data.pkl')
 
 # num_nodes_origin = [i.num_nodes for i in origin_datasets]
 # idx = [[j] * i for i, j in zip(num_nodes_origin, range(len(num_nodes_origin)))]
-# graph_datasets= torch.load(f'/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}_graph/graph_data_augmented_{args.sample_num}_{args.aug_type}_NC.pkl')
-# graph_datasets= torch.load(f'/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/graph_data_augmented_{args.sample_num}_{args.aug_type}.pkl')
+# graph_datasets= torch.load(f'./data/fewshot_{args.dataset}_graph/graph_data_augmented_{args.sample_num}_{args.aug_type}_NC.pkl')
+# graph_datasets= torch.load(f'./data/fewshot_{args.dataset}/graph_data_augmented_{args.sample_num}_{args.aug_type}.pkl')
 #
 #
 # loader = DataLoader(graph_datasets,batch_size=(args.sample_num+2)*args.batch_size,follow_batch=['x']*(args.sample_num+2)*args.batch_size,shuffle=False)
@@ -267,18 +267,18 @@ model.eval()
 embeds, _ = model.embed(feature=features_origin, g=g_origin)
 
 neighbors = []
-file = open(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}_graph/neighbors.csv")
+file = open(f"./data/fewshot_{args.dataset}_graph/neighbors.csv")
 csvreader = csv.reader(file)
 for row in csvreader:
     neighbors.append([int(i) for i in row])
 neighbors_2hops = []
-file = open(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}_graph/neighbors_2hops.csv")
+file = open(f"./fewshot_{args.dataset}_graph/neighbors_2hops.csv")
 csvreader = csv.reader(file)
 for row in csvreader:
     neighbors_2hops.append([int(i) for i in row])
 
 
-origin_datasets = torch.load(f'/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}_graph/graph_data1.pkl')
+origin_datasets = torch.load(f'./data/fewshot_{args.dataset}_graph/graph_data1.pkl')
 test_datasets = [origin_datasets[t] for t in idx_test]
 for n in tqdm.trange(len(test_datasets)):#get neighbors for each node in each graph (test_datasets is a list of graphs)
     nodes = test_datasets[n].graph_nodes[0]
