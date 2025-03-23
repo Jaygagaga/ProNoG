@@ -23,7 +23,7 @@ parser.add_argument('--aug_type',         type=str,           default="edge",   
 parser.add_argument('--drop_percent',     type=float,         default=0.2,               help='drop percent')
 parser.add_argument('--seed',             type=int,           default=39,                help='seed')
 # parser.add_argument('--gpu',              type=int,           default=1,                 help='gpu')
-parser.add_argument('--save_name',        type=str,           default='/home/xingtong/WebKB_node_origin/modelset/gp/ENZYMES_64_layer1_subgraph4_gp=1.pkl',                help='save ckpt name')
+parser.add_argument('--save_name',        type=str,           default='./modelset/gp/ENZYMES_64_layer1_subgraph4_gp=1.pkl',                help='save ckpt name')
 
 
 parser.add_argument('--hop_level', type=int, default=2, help='hop_level')
@@ -94,13 +94,13 @@ from torch_geometric.data import Data
 import ast
 if args.dataset in ['BZR','COX2']:
 
-    with open(f"/home/xingtong/WebKB_node_origin/data/{args.dataset}/{args.dataset}.edges") as f:
+    with open(f"./data/{args.dataset}/{args.dataset}.edges") as f:
         edges_index = [ast.literal_eval(i) for i in  f.readlines()]
-    with open(f"/home/xingtong/WebKB_node_origin/data/{args.dataset}/{args.dataset}.graph_idx") as f:
+    with open(f"./data/{args.dataset}/{args.dataset}.graph_idx") as f:
         graph_labels =[ast.literal_eval(i) for i in  f.readlines()]
-    with open(f"/home/xingtong/WebKB_node_origin/data/{args.dataset}/{args.dataset}.node_attrs") as f:
+    with open(f"./data/{args.dataset}/{args.dataset}.node_attrs") as f:
         features= np.array([ast.literal_eval(i) for i in f.readlines()])
-    with open(f"/home/xingtong/WebKB_node_origin/data/{args.dataset}/{args.dataset}.node_labels") as f:
+    with open(f"./data/{args.dataset}/{args.dataset}.node_labels") as f:
         labels= torch.tensor([ast.literal_eval(i) for i in f.readlines()]).cuda()
 
     # features = process.preprocess_features(features)
@@ -342,18 +342,6 @@ if test_embs.dim() == 3:
 import csv
 
 model.cuda()
-# testneighbors = [[] for m in range(len(idx_test))]
-# testneighbors_2hop = [[] for m in range(len(idx_test))]
-# for step, x in enumerate(idx_test):
-#     tempneighbors, tempneighbors_2hop = process.find_2hop_neighbors(origin_adj, idx_test[step], k=args.k)
-#     testneighbors[step] = tempneighbors
-#     testneighbors_2hop[step] = tempneighbors_2hop
-# with open(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/testneighbors1.csv", "w") as f:
-#     wr = csv.writer(f)
-#     wr.writerows(testneighbors)
-# with open(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/testneighbors_2hop1.csv", "w") as f:
-#     wr = csv.writer(f)
-#     wr.writerows(testneighbors_2hop)
 
 tot = torch.zeros(1)
 tot = tot.cuda()
