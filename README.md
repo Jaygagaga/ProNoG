@@ -7,6 +7,8 @@ which is accepted by SIGKDD 2025.
 
 Please run execute_hetero_NC.py first. Two csv files "neighbors.csv", "neighbors_2hops.csv" will be generated and saved to speed up for other excutions. Otherwise, use `find_2hop_neighbors` function from utils.process file to generate neighbors and neighbors_2hops.
 
+Feel free to email us you have any questions.
+
 ## Description
 
 The repository is organised as follows:
