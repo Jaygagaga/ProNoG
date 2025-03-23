@@ -23,7 +23,7 @@ parser.add_argument('--aug_type',         type=str,           default="edge",   
 parser.add_argument('--drop_percent',     type=float,         default=0.2,               help='drop percent')
 parser.add_argument('--seed',             type=int,           default=39,                help='seed')
 # parser.add_argument('--gpu',              type=int,           default=1,                 help='gpu')
-parser.add_argument('--save_name',        type=str,           default='/home/xingtong/WebKB_node_origin/modelset/gp/PROTEINS_256_layer1_subgraph4.pkl',                help='save ckpt name')
+parser.add_argument('--save_name',        type=str,           default='./modelset/gp/PROTEINS_256_layer1_subgraph4.pkl',                help='save ckpt name')
 parser.add_argument('--num_layers', type=int, default=1, help='num of layers')
 
 parser.add_argument('--hop_level', type=int, default=2, help='hop_level')
@@ -151,12 +151,12 @@ if args.dataset in ['ENZYMES', 'PROTEINS']:
         # idx_test = torch.load(f"data/fewshot_{args.dataset}/test_idx.pt").type(torch.long).cuda()
         # # sp_adj_test = test_adj.cuda()
         testneighbors = []
-        file = open(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/testneighbors1shot.csv")
+        file = open(f"./data/fewshot_{args.dataset}/testneighbors1shot.csv")
         csvreader = csv.reader(file)
         for row in csvreader:
             testneighbors.append([int(i) for i in row])
         testneighbors_2hop = []
-        file = open(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/testneighbors_2hop1shot.csv")
+        file = open(f"./data/fewshot_{args.dataset}/testneighbors_2hop1shot.csv")
         csvreader = csv.reader(file)
         for row in csvreader:
             testneighbors_2hop.append([int(i) for i in row])
@@ -410,9 +410,9 @@ if not os.path.exists(args.save_name):
 model.load_state_dict(torch.load(args.save_name),strict=False)
 model.cuda()
 
-# test_adj = torch.load(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/5-shot_{args.dataset}/testadj.pt").squeeze().cuda()
+# test_adj = torch.load(f"./data/fewshot_{args.dataset}/5-shot_{args.dataset}/testadj.pt").squeeze().cuda()
 # print('-' * 100)
-# testfeature = torch.load(f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/5-shot_{args.dataset}/testemb.pt").cuda()
+# testfeature = torch.load(f"./data/fewshot_{args.dataset}/5-shot_{args.dataset}/testemb.pt").cuda()
 LP = True
 test_embs , _= model.embed(test_features,sp_adj_test, sparse, None,LP)
 # test_embs, _ = model.embed(test_features, sp_adj_test, sparse, None)
@@ -453,9 +453,9 @@ for shotnum in args.shotnum:
         train_lbls = torch.load(f"data/fewshot_{args.dataset}/{shotnum}-shot_{args.dataset}/{i}/nodelabels.pt").type(torch.long).squeeze().cuda()
         # print(len(idx_train))
         pretrain_adj = torch.load(
-            f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/{shotnum}-shot_{args.dataset}/{i}/nodeadj.pt").squeeze().cuda()
+            f"./data/fewshot_{args.dataset}/{shotnum}-shot_{args.dataset}/{i}/nodeadj.pt").squeeze().cuda()
         prefeature = torch.load(
-            f"/home/xingtong/WebKB_node_origin/data/fewshot_{args.dataset}/{shotnum}-shot_{args.dataset}/{i}/nodeemb.pt").cuda()
+            f"./data/fewshot_{args.dataset}/{shotnum}-shot_{args.dataset}/{i}/nodeemb.pt").cuda()
         pretrain_embs, _ = model.embed(prefeature, pretrain_adj, sparse, None, LP)
         pretrain_embs = pretrain_embs.squeeze()
         neighbors = [[]for m in range(len(idx_train)) ]
