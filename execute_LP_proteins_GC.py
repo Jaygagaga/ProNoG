@@ -24,7 +24,7 @@ parser.add_argument('--aug_type', type=str, default="edge", help='aug type: mask
 parser.add_argument('--drop_percent', type=float, default=0.2, help='drop percent')
 parser.add_argument('--seed', type=int, default=39, help='seed')
 # parser.add_argument('--gpu',              type=int,           default=1,                 help='gpu')
-parser.add_argument('--save_name', type=str, default='/home/xingtong/WebKB_node_origin/modelset/gp/PROTEINS_256_layer1_subgraph4.pkl',
+parser.add_argument('--save_name', type=str, default='./modelset/gp/PROTEINS_256_layer1_subgraph4.pkl',
                     help='save ckpt name')
 parser.add_argument('--num_layers', type=int, default=1, help='num of layers')
 parser.add_argument('--hop_level', type=int, default=2, help='hop_level')
@@ -95,13 +95,13 @@ import ast
 # if args.dataset =='cornell':
 if args.dataset in ['BZR','COX2']:
 
-    with open(f"/home/xingtong/WebKB_node_origin/data/{args.dataset}/{args.dataset}.edges") as f:
+    with open(f"./data/{args.dataset}/{args.dataset}.edges") as f:
         edge_index = [ast.literal_eval(i) for i in  f.readlines()]
-    with open(f"/home/xingtong/WebKB_node_origin/data/{args.dataset}/{args.dataset}.graph_idx") as f:
+    with open(f"./data/{args.dataset}/{args.dataset}.graph_idx") as f:
         graph_labels =[ast.literal_eval(i) for i in  f.readlines()]
-    with open(f"/home/xingtong/WebKB_node_origin/data/{args.dataset}/{args.dataset}.node_attrs") as f:
+    with open(f"./data/{args.dataset}/{args.dataset}.node_attrs") as f:
         features= np.array([ast.literal_eval(i) for i in f.readlines()])
-    with open(f"/home/xingtong/WebKB_node_origin/data/{args.dataset}/{args.dataset}.node_labels") as f:
+    with open(f"./data/{args.dataset}/{args.dataset}.node_labels") as f:
         labels= torch.tensor([ast.literal_eval(i) for i in f.readlines()]).cuda()
 
     # features = process.preprocess_features(features)
