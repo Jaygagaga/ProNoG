@@ -5,7 +5,7 @@ which is accepted by SIGKDD 2025.
 
 ## UPDATE for running the codes
 
-Run node classification first and then graph classification. For heterophily datasets, run execute_hetero_NC.py first. Two csv files "neighbors.csv", "neighbors_2hops.csv" will be generated and saved to speed up for other excutions. Otherwise, use `find_2hop_neighbors` function from utils.process file to generate neighbors and neighbors_2hops.
+Run node classification first and then graph classification. For heterophily datasets, run execute_hetero_NC.py first. Two csv files "neighbors.csv", "neighbors_2hops.csv" will be generated and saved to speed up for other excutions. Otherwise, use `find_2hop_neighbors` function from utils.process file to generate neighbors and neighbors_2hops. For PROTEINS dataset, We use 1-shot dataset from MultiGPrompt as test set and 5-shot dataset as test set for ENZYMES. Related "neighbors.csv", "neighbors_2hops.csv" are provided in the relevant few_shot data folder (Download them from Google Drive, see detils below ). 
 
 Feel free to email us you have any questions.
 
