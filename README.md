@@ -5,7 +5,7 @@ which is accepted by SIGKDD 2025.
 
 ## UPDATE for running the codes
 
-Run node classification first and then graph classification. Please run execute_hetero_NC.py first. Two csv files "neighbors.csv", "neighbors_2hops.csv" will be generated and saved to speed up for other excutions. Otherwise, use `find_2hop_neighbors` function from utils.process file to generate neighbors and neighbors_2hops.
+Run node classification first and then graph classification. For heterophily datasets, run execute_hetero_NC.py first. Two csv files "neighbors.csv", "neighbors_2hops.csv" will be generated and saved to speed up for other excutions. Otherwise, use `find_2hop_neighbors` function from utils.process file to generate neighbors and neighbors_2hops.
 
 Feel free to email us you have any questions.
 
@@ -34,7 +34,7 @@ Change `dataset` name and `pretrained_model` parameters in python files to run t
 
 **General settings Optimizer**
 
-For all experiments, we use the Adamoptimizer.
+For all experiments, we use the Adam optimizer.
 
 **Environment**
 - The environment in which we run experiments is: Linux version: 5.15.0-78-generic
